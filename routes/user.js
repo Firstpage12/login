@@ -2,6 +2,9 @@ const express = require('express')
 const { ReturnDocument } = require('mongodb')
 const { model } = require('mongoose')
  const User = require('../model/user')
+
+
+  const  validateToken = require("../middleware/validateTokenHandler")
 const router = express.Router()
 
 const{
@@ -9,7 +12,10 @@ const{
     updateUser,
     deleteUser,
     getById,
-    getAll
+    getAll,
+    registerUser,
+    CurrentUser,
+    LoginUser,
 }= require('../Controller/userController')
 
 const {validateUserSignUp,userValidation} = require('../validation/userValidation')
@@ -30,5 +36,11 @@ router.patch('/user/:id',updateUser,validateUserSignUp,userValidation)
 
 
 router.delete('/user/:id',deleteUser)
+
+router.post("/register", registerUser);
+
+router.post("/login", LoginUser);
+
+router.get("/current", validateToken,CurrentUser);
 
 module.exports=router;

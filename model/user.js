@@ -58,16 +58,16 @@ const userSchema = new mongoose.Schema({
     role:{
         type:String,
         required:[true,"Please enter a role"],
-        validate(value){
-            if(!validator.isAlpha(value)){
-                throw new Error("role invalid")
-            }
+        // validate(value){
+        //     if(!validator.isAlpha(value)){
+        //         throw new Error("role invalid")
+        //     }
         
        
            
         }
     },
-    },
+
     {
         timestamps:true,
     }
