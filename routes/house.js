@@ -14,7 +14,7 @@ const{
 
 
 
-router.get('/getAll',getAll)
+router.get('/getAllHouse',getAll)
 
 
 

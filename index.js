@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const houseRouter = require('./routes/house')
+const UserRouter = require('./routes/user')
 const app= express();
 
 const port = 4000;
@@ -23,7 +24,7 @@ app.use(express.json());
 app.use(bodyParser.json()) 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(houseRouter)
-
+app.use(UserRouter)
 
 
 app.listen(port,()=>{
