@@ -5,9 +5,9 @@ const validator =require('validator')
 const userSchema = new mongoose.Schema({
 
     id:{
-        type:mongoose.Schema.Types.ObjectId,
+        type:Number,
            required:true,
-             ref:"Users"
+             unique:true
     },
     name:{
         type:String,
